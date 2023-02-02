@@ -27,16 +27,33 @@ public class Company {
     public double averageDelay(){
         double sum=0;
         for (Journey journey : journeyHistory){
-            sum=sum+journey.getDelay();
+            if (!journey.isWeatherRelated()){
+                sum=sum+journey.getDelay();
+            }
         }
         return sum/numberOfJourneys;
     }
 
     public String longestDelay (Codes[] c){
-        return "";
+        Journey longest=null;
+        for (Journey journey: journeyHistory){
+            if (!journey.isWeatherRelated()){
+                if (journey.getDelay()>longest.getDelay()){
+                    longest=journey;
+                }
+            }
+        }
+
+        String name = "";
+        for (Codes code : c){
+            if (longest.getRouteCode().equals(code.getRouteCode())){
+                name=code.getRouteName();
+            }
+        }
+        return name;
     }
 
     public String toString (Codes[] c){
-        return "";
+        return companyName + " : Average Delay = " + averageDelay() + " minutes : Longest Delay = " + longestDelay(c);
     }
 }
