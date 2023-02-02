@@ -1,19 +1,17 @@
-// Binary Tree for all codes
+public class Codes {
+    private String routeName;
+    private String routeCode;
 
-import com.sun.source.tree.BinaryTree;
-
-import java.io.UnsupportedEncodingException;
-
-public class  Codes {
-    private BinaryTree codeValues;
-
-    public String getCode(String routeName)
-    {
-        return "";
+    public Codes(String routeName, String routeCode) {
+        this.routeName = routeName;
+        this.routeCode = routeCode;
     }
 
-    public void addCode(CodeNode node)
-    {
+    public String getRouteName() {
+        return routeName;
+    }
 
+    public String getRouteCode() {
+        return routeCode;
     }
 }

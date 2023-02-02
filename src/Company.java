@@ -27,16 +27,16 @@ public class Company {
     public double averageDelay(){
         double sum=0;
         for (Journey journey : journeyHistory){
-            sum=sum+journey.getdelay();
+            sum=sum+journey.getDelay();
         }
         return sum/numberOfJourneys;
     }
 
     public String longestDelay (Codes[] c){
-
+        return "";
     }
 
     public String toString (Codes[] c){
-
+        return "";
     }
 }
