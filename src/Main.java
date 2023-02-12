@@ -1,10 +1,10 @@
 public class Main {
     public static void main(String[] args) {
-        Boolean run = true;
+        boolean run = true;
         String trainCompanyName;
         String companyCode;
         String check = null;
-        Boolean prompt;
+        boolean prompt;
         while(run) {
             while(!(check.equals("train company")||(check.equals("search")))){
                 check = Input.getString("Create a new train company or search (train company or search)");
