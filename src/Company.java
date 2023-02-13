@@ -15,6 +15,18 @@ public class Company {
 
     }
 
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public String getCompanyCode() {
+        return companyCode;
+    }
+
+    public int getNumberOfJourneys() {
+        return numberOfJourneys;
+    }
+
     Journey getJourney (int x){
         return journeyHistory[x];
     }
