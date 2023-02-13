@@ -98,6 +98,9 @@ public class Main {
                             ".If you wish to retry please re enter add journey and restart the addition process");
                 }
             }
+            }else{
+                System.out.println("System could not find any company in the system please add a train company using" +
+                        "the train company command");
             }
         }
 
