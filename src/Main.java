@@ -1,5 +1,4 @@
 import DSYS.*;
-
 import java.util.ArrayList;
 
 public class Main {
@@ -14,7 +13,7 @@ public class Main {
         while (run) {
             while (!(check.equals("train company") || (check.equals("tci") || check.equals("add journey")))) {
                 check = Input.getString("Create a new train company,add a journey to an" +
-                        " existing company, ot output train company information?" +
+                        " existing company, or output train company information?" +
                         " (train company, add journey, tci)\n");
             }
             if (check.equals("train company")) {
@@ -44,13 +43,15 @@ public class Main {
                 check = Input.getString("what is the name of the companies information you would like to" +
                         "output?\n");
                 if (counter > 0) {
-                    for (int i = 0; i <= counter; i++) {
+                    for (int i = 0; i < counter; i++) {
                         if (allCompanies.get(i).getCompanyName().equals(check)) {
-                            System.out.println(allCompanies.get(i).getCompanyName() + allCompanies.get(i).getCompanyCode());
+                            System.out.println(allCompanies.get(i).getCompanyName() + "\n" + allCompanies.get(i).getCompanyCode());
                             for (int x = 1; x <= allCompanies.get(i).getNumberOfJourneys(); x++) {
-                                System.out.println(allCompanies.get(i).getJourney(x));
-                                i = counter + 1;
+                                System.out.println(allCompanies.get(i).getJourney(x).getRouteCode());
+                                System.out.println(allCompanies.get(i).getJourney(x).getDelay());
+                                System.out.println("is it weather related" + allCompanies.get(i).getJourney(x).isWeatherRelated());
                             }
+                            i = counter + 1;
                         } else {
                             System.out.println("System could not find company.If you wish to retry please re enter tci and " +
                                     "restart the search");
@@ -62,9 +63,9 @@ public class Main {
                 }
             }else{
             check = Input.getString("what is the name of the companies information you would like to" +
-                    "add a journey to?\n");
+                    " add a journey to?\n");
             if(counter > 0){
-            for (int i = 0; i <= counter; i++) {
+            for (int i = 0; i < counter; i++) {
                 if (allCompanies.get(i).getCompanyName().equals(check)) {
                     String routeCode;
                     int delay;
@@ -83,13 +84,13 @@ public class Main {
                         delay = Input.getInt("What is the delay in minutes?\n");
                         weatherRelated = Input.getBool("is the delay weather related? (t or f)\n", 't', 'f');
                         Journey journey2 = new Journey(routeCode, delay, weatherRelated);
-                        allCompanies.get(counter).addJourney(journey2);
+                        allCompanies.get(i).addJourney(journey2);
                         check = "null";
                         while (!(check.equals("y") || check.equals("n"))) {
                             check = Input.getString("would you like to add one more? (y or n)\n");
                         }
-                        i = counter + 1;
                     }
+                    i = counter + 1;
                 } else {
                     System.out.println("System could not find company and therefore could not allow you to add a journey" +
                             ".If you wish to retry please re enter add journey and restart the addition process");
